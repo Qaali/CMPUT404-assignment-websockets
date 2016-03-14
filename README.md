@@ -57,3 +57,7 @@ Contributors
 
 * Mark Galloway
 * Abram Hindle
+
+Contributors:
+
+Qamar Ali
