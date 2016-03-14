@@ -133,6 +133,7 @@ function addEntity(entity, data) {
     var msg={}
     msg[entity]=data
     socket.send(JSON.stringfy(msg))
+    console.log(msg);
 }
 var counter = 0;
 function addEntityWithoutName(data) {
@@ -262,6 +263,7 @@ function wsSetup() {
     socket = new WebSocket(url);
     socket.onopen = function() {
         //XXX: TODO What are you going to do here?
+        console.log("Hello");
     };
     socket.onerror = function(msg) {
         debug("WebSocket Error:" + msg.data);
@@ -270,7 +272,16 @@ function wsSetup() {
         try {
             debug("WebSocket Recv:" + msg.data);
             //XXX: TODO What are you going to do here? 
-            refresh(JSON.parse(msg.data));           
+              try{
+                var message=JSON.parse(msg.data);
+                for(var entity in message){
+                    world[entity]=message[entity];
+                }
+                drawNextFrame();
+
+              } catch (e){
+                  alert("socket on message: " + e);
+              }
         } catch (e) {
             alert("socket on message: " + e);
         }
