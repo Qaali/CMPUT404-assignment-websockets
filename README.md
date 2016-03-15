@@ -61,3 +61,11 @@ Contributors
 Contributors:
 
 Qamar Ali
+
+Resources
+============
+
+Parts of sockets.py was adapted from Abram Hindle's chat.py, found March 13, 2016 at: https://github.com/abramhindle/WebSocketsExamples 
+Copyright 2014 Abram Hindle, Apache 2 Licensed
+
+
